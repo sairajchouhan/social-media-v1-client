@@ -1,0 +1,16 @@
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+.navbar__items {
+  margin-left: 0.6rem;
+  margin-right: 0.6rem;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding: 0 !important;
+}
+
+.navbar__items i.icon {
+  font-size: 1.3rem;
+}
