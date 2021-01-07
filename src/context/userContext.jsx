@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import Axios from '../utils/axios';
-import { URL } from '../utils/constants';
 
 export const initialState = {
   isAuthenticated: false,
