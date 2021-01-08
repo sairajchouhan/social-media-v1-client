@@ -8,20 +8,14 @@ import useUserPostsQuery from '../hooks/useUserPostsQuery';
 
 const Profile = () => {
   const { username } = useParams();
-  const { data: user, isLoading, isError, error } = useUserQuery(username);
+  const { data: user, isLoading, isError } = useUserQuery(username);
   const {
     data: posts,
     isLoading: isLoadingPosts,
     isError: isErrorPosts,
-    error: errorPosts,
   } = useUserPostsQuery(username);
 
-  if (isError || isErrorPosts)
-    return (
-      <h1>
-        {error.message}...{errorPosts.message}
-      </h1>
-    );
+  if (isError || isErrorPosts) return <h1>no user found</h1>;
   if (isLoading || isLoadingPosts) return <h1>Loading...</h1>;
 
   return (

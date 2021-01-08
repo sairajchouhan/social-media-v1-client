@@ -39,7 +39,7 @@ const ProfileUserInfo = ({ user, isAuthUser }) => {
                   history.push('/edit/profile');
                 }}
               >
-                <i class='fas fa-user-edit'></i>
+                <i className='fas fa-user-edit'></i>
               </LoadingButton>
             </OverlayTrigger>
           )}

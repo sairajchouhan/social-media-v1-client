@@ -14,8 +14,8 @@ const ProfileUserPosts = ({ posts, isAuthUser }) => {
   return (
     <Row className='mt-5'>
       {posts.map((post) => (
-        <Col sm={12} md={6}>
-          <Card key={post.id} className='mt-3'>
+        <Col sm={12} md={6} key={post.id}>
+          <Card className='mt-3'>
             <Card.Header>
               <div className='d-flex align-items-center justify-content-between'>
                 <div className='d-flex flex-column'>
@@ -38,7 +38,7 @@ const ProfileUserPosts = ({ posts, isAuthUser }) => {
                         variant='outline-success'
                         onClick={() => history.push(`/edit/posts/${post.id}`)}
                       >
-                        <i class='far fa-edit'></i>
+                        <i className='far fa-edit'></i>
                       </LoadingButton>
                     </OverlayTrigger>
                   )}

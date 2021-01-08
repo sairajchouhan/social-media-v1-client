@@ -52,7 +52,7 @@ const App = () => {
         <div className='row'>
           <div className='col-lg-12'>
             <Route path='/profile/:username' component={Profile} />
-            <Route path='/me/' component={AuthUserProfile} />
+            <Route path='/me' component={AuthUserProfile} />
           </div>
         </div>
       </Container>

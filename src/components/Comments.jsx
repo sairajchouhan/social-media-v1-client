@@ -32,10 +32,6 @@ const Comments = ({ postId }) => {
     },
     {
       getNextPageParam: (lastPage) => {
-        console.log(lastPage);
-        console.log(
-          lastPage.data.length === 0 ? 'undefined' : lastPage.nextCursor
-        );
         return lastPage.data.length === 0 ? undefined : lastPage.nextCursor;
       },
     }
