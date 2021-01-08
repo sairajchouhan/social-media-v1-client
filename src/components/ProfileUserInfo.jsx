@@ -1,12 +1,22 @@
 import React from 'react';
 import { Row, Col, Image, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { useQuery } from 'react-query';
 import { useHistory } from 'react-router-dom';
+import Axios from '../utils/axios';
 import LoadingButton from './LoadingButton';
 
-const bio = `Full-stack web developer | Instructor 👨‍🏫,I am limitless 🌻,Happiness is my goal ❤️,Power of HUSTLE is real 💪`;
-
 const ProfileUserInfo = ({ user, isAuthUser }) => {
+  const { data: profile, isLoading, isError } = useQuery(
+    ['profile'],
+    async () => {
+      const { data } = await Axios.get('/users/profile/me');
+      return data.profile;
+    }
+  );
   const history = useHistory();
+  if (isLoading) return <h1>Loading...</h1>;
+  if (isError) return <h1>Error</h1>;
+  console.log(profile);
   return (
     <Row>
       <Col xs={12} md={3}>
@@ -60,15 +70,16 @@ const ProfileUserInfo = ({ user, isAuthUser }) => {
           </Col>
           <Col xs={12} md={8}>
             <div className='d-flex flex-column'>
-              {bio.split(',').map((x) => (
-                <p
-                  style={{ fontSize: '1.2rem' }}
-                  className='m-0'
-                  key={Math.floor(Math.random() * 1000)}
-                >
-                  {x}
-                </p>
-              ))}
+              {profile &&
+                profile.bio?.split(',').map((x) => (
+                  <p
+                    style={{ fontSize: '1.2rem' }}
+                    className='m-0'
+                    key={Math.floor(Math.random() * 1000)}
+                  >
+                    {x}
+                  </p>
+                ))}
             </div>
           </Col>
         </Row>

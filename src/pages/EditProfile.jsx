@@ -17,7 +17,7 @@ const EditProfile = () => {
   });
   console.log(data);
 
-  const { mutate } = useMutation(
+  const { mutate, isLoading: isLoadingM } = useMutation(
     (values) => {
       return Axios.put(`/users/profile`, values);
     },
@@ -30,7 +30,7 @@ const EditProfile = () => {
     }
   );
 
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading || isLoadingM) return <h1>Loading...</h1>;
   if (isError) return <h1>Error... </h1>;
 
   const handleProfileSubmit = (e) => {
@@ -52,7 +52,7 @@ const EditProfile = () => {
           name='bio'
           type='text'
           placeholder='Update bio'
-          defaultValue={data.profile.bio}
+          defaultValue={data?.profile?.bio}
         />
       </Form.Group>
 
