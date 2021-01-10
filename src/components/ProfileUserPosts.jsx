@@ -13,6 +13,9 @@ const ProfileUserPosts = ({ posts, isAuthUser }) => {
 
   return (
     <Row className='mt-5'>
+      <Col sm={12}>
+        <h1>My Posts</h1>
+      </Col>
       {posts.map((post) => (
         <Col sm={12} md={6} key={post.id}>
           <Card className='mt-3'>

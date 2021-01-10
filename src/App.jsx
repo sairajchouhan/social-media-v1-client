@@ -1,6 +1,6 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+import { Route, Switch, useHistory, useLocation } from 'react-router-dom';
+import { Button, Container } from 'react-bootstrap';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
 import Header from './components/Header';
@@ -15,15 +15,15 @@ import AuthUserProfile from './pages/AuthUserProfile';
 import EditProfile from './pages/EditProfile';
 
 const App = () => {
-  // const history = useHistory();
-  // const { pathname } = useLocation();
-  // const paths = ['/', '/profile'];
+  const history = useHistory();
+  const { pathname } = useLocation();
+  const paths = ['/'];
 
   return (
     <>
       <Header />
       <Container>
-        {/* {!paths.includes(pathname) && (
+        {!paths.includes(pathname) && (
           <div className='row py-3 mt-3'>
             <div className='col-lg-2'>
               <Button
@@ -35,7 +35,7 @@ const App = () => {
               </Button>
             </div>
           </div>
-        )} */}
+        )}
         <div className='row'>
           <div className='col-lg-9'>
             <Switch>

@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfileUserInfo from '../components/ProfileUserInfo';
+// import ProfileUserInfo from '../components/ProfileUserInfo';
 import ProfileUserPosts from '../components/ProfileUserPosts';
 
 import useUserPostsQuery from '../hooks/useUserPostsQuery';
@@ -19,7 +19,7 @@ const Profile = () => {
 
   return (
     <div className='mt-4'>
-      <ProfileUserInfo user={user} isAuthUser={true} />
+      {/* <ProfileUserInfo user={user} isAuthUser={true} /> */}
       <ProfileUserPosts user={user} posts={posts} isAuthUser={true} />
     </div>
   );

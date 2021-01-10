@@ -97,7 +97,7 @@ const Comments = ({ postId }) => {
         ))}
       </ListGroup>
       <Button
-        className='mt-2 mb-4'
+        className='mt-2 mb-4 ml-3'
         onClick={() => fetchNextPage()}
         disabled={!hasNextPage || isFetchingNextPage}
         variant='info'

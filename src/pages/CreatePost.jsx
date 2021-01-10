@@ -44,11 +44,12 @@ const CreatePost = () => {
       </Form.Group>
 
       <Form.Group controlId='exampleForm.ControlTextarea1'>
-        <Form.Label>Body of the post</Form.Label>
+        <Form.Label>Body</Form.Label>
         <Form.Control
           name='body'
           as='textarea'
           rows={5}
+          placeholder='Body of the post'
           value={values.body}
           onChange={handleChange}
         />
