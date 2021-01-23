@@ -65,29 +65,29 @@ const Comments = ({ postId }) => {
 
   return (
     <>
-      <Form inline className='pt-3' onSubmit={handleComment}>
-        <Form.Label htmlFor='inlineFormInputName2' srOnly>
+      <Form inline className="pt-3" onSubmit={handleComment}>
+        <Form.Label htmlFor="inlineFormInputName2" srOnly>
           comment
         </Form.Label>
         <Form.Control
-          className='mb-2 mr-sm-2'
-          id='inlineFormInputName2'
-          placeholder='Comment'
-          name='comment'
+          className="mb-2 mr-sm-2"
+          id="inlineFormInputName2"
+          placeholder="Comment"
+          name="comment"
           value={values.comment}
           onChange={handleChange}
           onFocus={handleInputFocus}
         />
         <LoadingButton
-          type='submit'
-          className='mb-2'
+          type="submit"
+          className="mb-2"
           disabled={values.comment.trim() === ''}
           isLoading={mIsLoading}
         >
           Submit
         </LoadingButton>
       </Form>
-      <ListGroup variant='flush'>
+      <ListGroup variant="flush">
         {data.pages.map((page) => (
           <React.Fragment key={page.nextId}>
             {page.data.map((comment) => (
@@ -96,19 +96,21 @@ const Comments = ({ postId }) => {
           </React.Fragment>
         ))}
       </ListGroup>
-      <Button
-        className='mt-2 mb-4 ml-3'
-        onClick={() => fetchNextPage()}
-        disabled={!hasNextPage || isFetchingNextPage}
-        variant='info'
-        isLoading={isFetchingNextPage}
-      >
-        {isFetchingNextPage
-          ? 'Loading...'
-          : hasNextPage
-          ? 'more'
-          : 'no comments'}
-      </Button>
+      {data.pages.length > 0 && (
+        <LoadingButton
+          className="mt-2 mb-4 ml-3"
+          onClick={() => fetchNextPage()}
+          disabled={!hasNextPage || isFetchingNextPage}
+          variant="info"
+          isLoading={isFetchingNextPage}
+        >
+          {isFetchingNextPage
+            ? 'Loading...'
+            : hasNextPage
+            ? 'more'
+            : 'no comments'}
+        </LoadingButton>
+      )}
     </>
   );
 };
